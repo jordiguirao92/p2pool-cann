@@ -9,10 +9,10 @@ from p2pool.util import math
 
 nets = dict(
 
- cannabiscoin=math.Object(
-        PARENT=networks.nets['cannabiscoin'],
-        SHARE_PERIOD=7,
-        NEW_SHARE_PERIOD=7,
+ onixcoin=math.Object(
+        PARENT=networks.nets['onixcoin'],
+        SHARE_PERIOD=10,
+        NEW_SHARE_PERIOD=10,
         CHAIN_LENGTH=24*60*60//10,
         REAL_CHAIN_LENGTH=24*60*60//10,
         TARGET_LOOKBEHIND=200,
@@ -20,10 +20,10 @@ nets = dict(
         NEW_SPREAD=30,
         IDENTIFIER='1bfe14c3cc75a0c9'.decode('hex'),
         PREFIX='1bfe14c3cd0e374a'.decode('hex'),
-        P2P_PORT=28742,
+        P2P_PORT=41016,
         MIN_TARGET=0,
         MAX_TARGET=2**256//2**20 - 1,
-        PERSIST=True,
+        PERSIST=False,
         WORKER_PORT=28741,
         BOOTSTRAP_ADDRS='crypto.office-on-the.net p2p-spb.xyz'.split(' '),
         ANNOUNCE_CHANNEL='#p2pool-cann',
