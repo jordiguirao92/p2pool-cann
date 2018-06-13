@@ -26,20 +26,20 @@ def get_subsidy(bitcoind, target):
 
 nets = dict(
 
-cannabiscoin=math.Object(
-        P2P_PREFIX='fec3b9de'.decode('hex'),
-        P2P_PORT=39348,
-        ADDRESS_VERSION=28,
-        RPC_PORT=39347,
+onixcoin=math.Object(
+        P2P_PREFIX='f3c3b9de'.decode('hex'),
+        P2P_PORT=41016,
+        ADDRESS_VERSION=75,
+        RPC_PORT=141019,
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            'CannabisCoinaddress' in (yield bitcoind.rpc_help()) and
+            'ONIXaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
         )),
         SUBSIDY_FUNC=lambda bitcoind, target: get_subsidy(bitcoind, target),
         BLOCKHASH_FUNC=lambda data: pack.IntType(256).unpack(__import__('x11_hash').getPoWHash(data)),
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('x11_hash').getPoWHash(data)),
-        BLOCK_PERIOD=42,
-        SYMBOL='CANN',
+        BLOCK_PERIOD=180,
+        SYMBOL='ONIXC',
         CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'CannabisCoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/CannabisCoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.CannabisCoin'), 'CannabisCoin.conf'),
         BLOCK_EXPLORER_URL_PREFIX='https://chainz.cryptoid.info/cann/block.dws?',
         ADDRESS_EXPLORER_URL_PREFIX='https://chainz.cryptoid.info/cann/address.dws?',
