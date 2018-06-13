@@ -30,7 +30,7 @@ onixcoin=math.Object(
         P2P_PREFIX='f3c3b9de'.decode('hex'),
         P2P_PORT=41016,
         ADDRESS_VERSION=75,
-        RPC_PORT=141019,
+        RPC_PORT=41019,
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
             'ONIXaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
